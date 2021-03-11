@@ -1,4 +1,4 @@
-import { type } from 'os'
+import { Document } from 'mongoose'
 
 export type ItemType = {
   name: string
@@ -7,7 +7,7 @@ export type ItemType = {
   quantity?: number
 }
 
-export type CategoriesType = {
+export interface ICategories extends Document {
   title: { type: String; required: true }
   items: ItemType[]
 }

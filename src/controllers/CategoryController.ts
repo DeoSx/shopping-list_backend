@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import Categories from '../models/Categories'
-
 class CategoryController {
   async fetch(req: Request, res: Response) {
     try {
@@ -43,7 +42,7 @@ class CategoryController {
     try {
       const { title, name, note, image } = req.body
 
-      let category: any = await Categories.findOne({ title })
+      let category = await Categories.findOne({ title })
 
       if (!category) {
         return res.status(404).json({ message: 'Category not found' })

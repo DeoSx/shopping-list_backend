@@ -1,11 +1,7 @@
-import { Schema, Document, model } from 'mongoose'
+import { Schema, model } from 'mongoose'
+import { ICategories } from '../types/categories'
 
-export interface IItems extends Document {
-  name: string
-  note?: string
-  image: string
-  quantity?: number
-}
+
 
 const Items: Schema = new Schema({
   name: {
@@ -31,4 +27,4 @@ const Categories = new Schema({
   items: [Items]
 })
 
-export default model<IItems>('Categories', Categories)
+export default model<ICategories>('Categories', Categories)
