@@ -5,6 +5,7 @@ export type ItemType = {
   note: string
   image: string
   quantity?: number
+  categoryId: string
 }
 
 export interface ICategories extends Document {

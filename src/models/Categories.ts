@@ -1,7 +1,5 @@
-import { Schema, model } from 'mongoose'
+import { Schema, model, Types } from 'mongoose'
 import { ICategories } from '../types/categories'
-
-
 
 const Items: Schema = new Schema({
   name: {
@@ -19,6 +17,11 @@ const Items: Schema = new Schema({
   quantity: {
     type: Number,
     default: 1
+  },
+  categoryId: {
+    type: Types.ObjectId,
+    ref: 'Categories',
+    required: true
   }
 })
 
