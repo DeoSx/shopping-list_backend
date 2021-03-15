@@ -40,7 +40,7 @@ class CategoryController {
 
   async createItem(req: Request, res: Response) {
     try {
-      const { title, name, note, image } = req.body
+      const { title, name, note, image, categoryId } = req.body
 
       let category = await Categories.findOne({ title })
 
@@ -48,7 +48,7 @@ class CategoryController {
         return res.status(404).json({ message: 'Category not found' })
       }
 
-      category.items = [...category.items, { name, note, image }]
+      category.items = [...category.items, { name, note, image, categoryId }]
 
       await category.save()
 
