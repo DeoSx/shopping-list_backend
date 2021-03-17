@@ -1,4 +1,4 @@
-import { Schema, model, Types } from 'mongoose'
+import { model, Schema, Types } from 'mongoose'
 import { ICategories } from '../types/categories'
 
 const Items: Schema = new Schema({
@@ -25,9 +25,9 @@ const Items: Schema = new Schema({
   }
 })
 
-export const Categories = new Schema({
+export const ShoppingList = new Schema({
   title: { type: String, required: true },
   items: [Items]
 })
 
-export default model<ICategories>('Categories', Categories)
+export default model<ICategories>('shopping-list', ShoppingList)
