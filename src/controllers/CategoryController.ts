@@ -8,7 +8,7 @@ class CategoryController {
       if (!categories) {
         return res
           .status(400)
-          .json({ message: 'Categories not found or ot exist yet' })
+          .json({ message: 'Categories not found' })
       }
 
       return res.send(categories)
