@@ -27,7 +27,8 @@ const Items: Schema = new Schema({
 
 export const ShoppingList = new Schema({
   title: { type: String, required: true },
-  items: [Items]
+  items: [Items],
+  createdAt: { type: Date, default: new Date() }
 })
 
 export default model<ICategories>('shopping-list', ShoppingList)
