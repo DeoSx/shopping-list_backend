@@ -25,9 +25,16 @@ const Items: Schema = new Schema({
   }
 })
 
+const List: Schema = new Schema({
+  title: {
+    type: String
+  },
+  items: [Items]
+})
+
 export const ShoppingList = new Schema({
-  title: { type: String, required: true },
-  items: [Items],
+  name: { type: String, required: true },
+  list: [List],
   createdAt: { type: Date, default: new Date() }
 })
 

@@ -19,20 +19,21 @@ class ShoppingListController {
 
   async create(req: Request, res: Response) {
     try {
-      const { title, items } = req.body
-      let shoppingList = await ShoppingList.findOne({ title })
+      const { name, list } = req.body
+      let shoppingList = await ShoppingList.findOne({ name })
 
       if (shoppingList) {
         return res.status(400).json({ message: 'Shopping list already exists' })
       }
 
-      shoppingList = new ShoppingList({ title, items })
+      shoppingList = new ShoppingList({ name, list })
 
       await shoppingList.save()
 
       res.status(201).json(shoppingList)
 
     } catch (e) {
+      console.log(e)
       res.status(500).json({ message: 'Server error' })
     }
   }
