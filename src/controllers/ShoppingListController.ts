@@ -17,6 +17,21 @@ class ShoppingListController {
     }
   }
 
+  async fetchOneList(req: Request, res: Response) {
+    try {
+      const { id } = req.params
+      const list = await ShoppingList.findById(id)
+
+      if (!list) {
+        return res.status(404).json({ message: 'List not found' })
+      }
+      res.json(list)
+
+    } catch (e) {
+      res.status(500).json({ messages: 'Server error' })
+    }
+  }
+
   async create(req: Request, res: Response) {
     try {
       const { name, list } = req.body
